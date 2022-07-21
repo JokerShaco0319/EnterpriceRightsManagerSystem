@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="EnterpriceRMS_dao" />
+        <module name="EnterpriceRMS_service" />
+        <module name="EnterpriceRMS_domain" />
+        <module name="EnterpriceRMS_utils" />
+        <module name="EnterpriceRMS_web" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
