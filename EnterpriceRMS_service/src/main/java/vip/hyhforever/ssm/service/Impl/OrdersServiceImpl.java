@@ -40,7 +40,6 @@ public class OrdersServiceImpl implements IOrdersService {
      **/
     @Override
     public Orders findById(String ordersId) throws Exception {
-//        return ordersDao.findById(ordersId);
-        return null;
+        return ordersDao.findById(ordersId);
     }
 }
