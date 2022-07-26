@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Select;
 
 public interface IUserDao {
 
-    @Select("select * from users where username=#{username}")
+    @Select("select * from user where username=#{username}")
     @Results({
             @Result(id = true, property = "id", column = "id"),
             @Result(property = "username", column = "username"),
@@ -16,7 +16,7 @@ public interface IUserDao {
             @Result(property = "password", column = "password"),
             @Result(property = "phoneNum", column = "phoneNum"),
             @Result(property = "status", column = "status"),
-            @Result(property = "roles",column = "id",javaType = java.util.List.class,many = @Many(select = "com.itheima.ssm.dao.IRoleDao.findRoleByUserId"))
+            @Result(property = "roles",column = "id",javaType = java.util.List.class,many = @Many(select = "vip.hyhforever.ssm.dao.IRoleDao.findRoleByUserId"))
     })
-    public UserInfo findByUsername(String username) throws Exception;
+    UserInfo findByUsername(String username) throws Exception;
 }
