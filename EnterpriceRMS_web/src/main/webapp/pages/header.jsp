@@ -41,7 +41,7 @@
 								<a href="${pageContext.request.contextPath}/logout.do"
 									class="btn btn-default btn-flat">注销</a>
 							</div>
-						</li>
+						</li>、
 					</ul></li>
 
 			</ul>

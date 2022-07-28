@@ -34,7 +34,7 @@
 		<!-- 关闭跨域请求 -->
 		<security:csrf disabled="true"/>
 
-		<!-- 退出 -->
+		<!-- 退出,只要访问logout.do，就可以将用户退出，并自动注销当前session，同时跳转到login页面 -->
 		<security:logout invalidate-session="true" logout-url="/logout.do" logout-success-url="/login.jsp" />
 
 	</security:http>
