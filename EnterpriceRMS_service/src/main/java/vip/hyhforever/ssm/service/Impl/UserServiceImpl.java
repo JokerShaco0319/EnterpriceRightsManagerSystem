@@ -24,6 +24,14 @@ public class UserServiceImpl implements IUserService {
     @Autowired
     private IUserDao userDao;
 
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    /**
+     * 功能描述：根据用户名查询数据库获取用户对应权限，进行security的权限控制
+     * @param username 需要进行权限验证的用户名
+     * @return UserDetails 返回一个security的权限验证类
+     **/
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserInfo userInfo = null;
@@ -51,7 +59,7 @@ public class UserServiceImpl implements IUserService {
      * @param roles 当前用户对应的角色集合
      * @return List 返回一个security权限控制类的集合
      **/
-    public List<SimpleGrantedAuthority> getAuthority(List<Role> roles) {
+    private List<SimpleGrantedAuthority> getAuthority(List<Role> roles) {
         List<SimpleGrantedAuthority> list = new ArrayList<>();
         for (Role role : roles) {
             list.add(new SimpleGrantedAuthority("ROLE_" + role.getRoleName()));
@@ -60,4 +68,21 @@ public class UserServiceImpl implements IUserService {
         return list;
     }
 
+    /**
+     * 功能描述： 查询所有的用户信息
+     * @return List 返回所有用户信息的集合
+     **/
+    @Override
+    public List<UserInfo> findAll() throws Exception {
+        return userDao.findAll();
+    }
+
+    /**
+     * 功能描述：向数据库中插入一条信息
+     **/
+    @Override
+    public void save(UserInfo userInfo) throws Exception {
+        userInfo.setPassword(bCryptPasswordEncoder.encode(userInfo.getPassword()));//对密码进行加密处理
+        userDao.save(userInfo);
+    }
 }

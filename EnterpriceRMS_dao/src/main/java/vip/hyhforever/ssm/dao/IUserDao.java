@@ -1,10 +1,9 @@
 package vip.hyhforever.ssm.dao;
 
+import org.apache.ibatis.annotations.*;
 import vip.hyhforever.ssm.domain.UserInfo;
-import org.apache.ibatis.annotations.Many;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 public interface IUserDao {
 
@@ -19,4 +18,10 @@ public interface IUserDao {
             @Result(property = "roles",column = "id",javaType = java.util.List.class,many = @Many(select = "vip.hyhforever.ssm.dao.IRoleDao.findRoleByUserId"))
     })
     UserInfo findByUsername(String username) throws Exception;
+
+    @Select("select * from user")
+    List<UserInfo> findAll() throws Exception;
+
+    @Insert("insert into user(email,username,password,phoneNum,status) values(#{email},#{username},#{password},#{phoneNum},#{status})")
+    void save(UserInfo userInfo) throws Exception;
 }
