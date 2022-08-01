@@ -44,10 +44,10 @@ public class UserServiceImpl implements IUserService {
 
         //使用Spring security的规范User对象 封装 自定义的User对象
         assert userInfo != null;
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();//security的需要将密码加密后才能正确获取权限控制，如果数据库没有加密，需要调用加密
+//        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();//security的需要将密码加密后才能正确获取权限控制，如果数据库没有加密，需要调用加密
 
         return new User(userInfo.getUsername(),//用户名
-                bCryptPasswordEncoder.encode(userInfo.getPassword()),//将密码加密
+                userInfo.getPassword(),
                 userInfo.getStatus() == 0 ? false : true,//用户是否可用
                 true, true, true,//其他权限控制
                 getAuthority(userInfo.getRoles()));//角色信息
@@ -84,5 +84,15 @@ public class UserServiceImpl implements IUserService {
     public void save(UserInfo userInfo) throws Exception {
         userInfo.setPassword(bCryptPasswordEncoder.encode(userInfo.getPassword()));//对密码进行加密处理
         userDao.save(userInfo);
+    }
+
+    /**
+     * 功能描述：根据Id查询用户的所有相关数据并封装为UserInfo类
+     * @param userId 需要查询的用户Id
+     * @return UserInfo
+     **/
+    @Override
+    public UserInfo findById(String userId) {
+        return userDao.findById(userId);
     }
 }

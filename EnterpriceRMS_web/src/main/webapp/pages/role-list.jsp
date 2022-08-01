@@ -79,15 +79,15 @@
 			<!-- 内容头部 -->
 			<section class="content-header">
 			<h1>
-				用户管理 <small>全部用户</small>
+				角色管理 <small>全部角色</small>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
 						class="fa fa-dashboard"></i> 首页</a></li>
 				<li><a
-					href="${pageContext.request.contextPath}/user/findAll.do">用户管理</a></li>
+					href="${pageContext.request.contextPath}/role/findAll.do">角色管理</a></li>
 
-				<li class="active">全部用户</li>
+				<li class="active">全部角色</li>
 			</ol>
 			</section>
 			<!-- 内容头部 /-->
@@ -108,11 +108,11 @@
 							<div class="pull-left">
 								<div class="form-group form-inline">
 									<div class="btn-group">
-										<button type="button" class="btn btn-default" title="新建" onclick="location.href='${pageContext.request.contextPath}/pages/user-add.jsp'">
+										<button type="button" class="btn btn-default" title="新建" onclick="location.href='${pageContext.request.contextPath}/pages/role-add.jsp'">
 											<i class="fa fa-file-o"></i> 新建
 										</button>
 										
-										<button type="button" class="btn btn-default" title="刷新" onclick="location.href='${pageContext.request.contextPath}/user/findAll.do'">
+										<button type="button" class="btn btn-default" title="刷新">
 											<i class="fa fa-refresh"></i> 刷新
 										</button>
 									</div>
@@ -136,30 +136,36 @@
 											id="selall" type="checkbox" class="icheckbox_square-blue">
 										</th>
 										<th class="sorting_asc">ID</th>
-										<th class="sorting_desc">用户名</th>
-										<th class="sorting_asc sorting_asc_disabled">邮箱</th>
-										<th class="sorting_desc sorting_desc_disabled">联系电话</th>
-										<th class="sorting">状态</th>
+										<th class="sorting_desc">角色名称</th>
+										<th class="sorting_asc sorting_asc_disabled">描述</th>										
 										<th class="text-center">操作</th>
 									</tr>
 								</thead>
 								<tbody>
 
-									<c:forEach items="${userList}" var="user">
+									<c:forEach items="${roleList}" var="role">
 										<tr>
 											<td><input name="ids" type="checkbox"></td>
-											<td>${user.id }</td>
-											<td>${user.username }</td>
-											<td>${user.email }</td>
-											<td>${user.phoneNum }</td>
-											<td>${user.statusStr }</td>											
+											<td>${role.id }</td>
+											<td>${role.roleName }</td>
+											<td>${role.roleDesc }</td>																				
 											<td class="text-center">
-												<a href="${pageContext.request.contextPath}/user/findById.do?id=${user.id}" class="btn bg-olive btn-xs">详情</a>
+												<a href="${pageContext.request.contextPath}/role/findById.do?id=${role.id}" class="btn bg-olive btn-xs">详情</a>
 												<a href="${pageContext.request.contextPath}/user/findUserByIdAndAllRole.do?id=${user.id}" class="btn bg-olive btn-xs">添加角色</a>
 											</td>
 										</tr>
 									</c:forEach>
 								</tbody>
+								<!--
+                            <tfoot>
+                            <tr>
+                            <th>Rendering engine</th>
+                            <th>Browser</th>
+                            <th>Platform(s)</th>
+                            <th>Engine version</th>
+                            <th>CSS grade</th>
+                            </tr>
+                            </tfoot>-->
 							</table>
 							<!--数据列表/-->
 
@@ -291,7 +297,7 @@
 
 			$(document)
 					.ready(
-							function () {
+							function() {
 
 								// 激活导航位置
 								setSidebarActive("admin-datalist");
@@ -300,13 +306,13 @@
 								$("#dataList td input[type='checkbox']")
 										.iCheck(
 												{
-													checkboxClass: 'icheckbox_square-blue',
-													increaseArea: '20%'
+													checkboxClass : 'icheckbox_square-blue',
+													increaseArea : '20%'
 												});
 								// 全选操作 
 								$("#selall")
 										.click(
-												function () {
+												function() {
 													var clicks = $(this).is(
 															':checked');
 													if (!clicks) {

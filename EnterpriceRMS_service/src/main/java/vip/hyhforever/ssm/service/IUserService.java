@@ -17,4 +17,12 @@ public interface IUserService extends UserDetailsService {
      * 功能描述：在数据库中插入一条用户信息
      **/
     void save(UserInfo userInfo) throws Exception;
+
+
+    /**
+     * 功能描述：以UserInfo的形式返回查询到的所有有关Id的用户信息
+     * @param userId 需要查询的用户Id
+     * @return UserInfo
+     **/
+    UserInfo findById(String userId);
 }
