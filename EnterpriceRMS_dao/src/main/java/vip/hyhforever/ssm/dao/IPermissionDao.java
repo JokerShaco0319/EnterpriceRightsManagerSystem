@@ -5,6 +5,7 @@ package vip.hyhforever.ssm.dao;
  * 功能描述：权限类的相关操作
  * */
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import vip.hyhforever.ssm.domain.Permission;
 
@@ -19,4 +20,15 @@ public interface IPermissionDao {
      **/
     @Select("select * from permission where id in (select permissionId from role_permission where roleId = #{id})")
     List<Permission> findPermissionById(String userId) throws Exception;
+
+
+    /**
+     * 功能描述：查询所有的资源权限
+     * @return 返回权限信息的集合
+     **/
+    @Select("select * from permission")
+    List<Permission> findAll() throws Exception;
+
+    @Insert("insert into permission(permissionName, url) values(#{permissionName},#{url})")
+    void save(Permission permission) throws Exception;
 }
