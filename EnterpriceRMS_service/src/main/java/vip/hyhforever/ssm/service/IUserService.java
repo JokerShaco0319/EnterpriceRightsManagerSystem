@@ -1,6 +1,7 @@
 package vip.hyhforever.ssm.service;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
+import vip.hyhforever.ssm.domain.Role;
 import vip.hyhforever.ssm.domain.UserInfo;
 
 import java.util.List;
@@ -25,4 +26,18 @@ public interface IUserService extends UserDetailsService {
      * @return UserInfo
      **/
     UserInfo findById(String userId);
+
+    /**
+     * 功能描述：根据ID查询当前用户可以添加的所有角色
+     * @param userid 需要查询的用户id
+     * @return 用户可以添加的其他角色的集合
+     **/
+    List<Role> findOtherRoles(String userId) throws Exception;
+
+    /**
+     * 功能描述：对当前用户添加至少一个角色
+     * @param userId 当前用户id
+     * @param ids 多个角色的唯一ID
+     **/
+    void addRoleToUser(String userId, String[] ids);
 }

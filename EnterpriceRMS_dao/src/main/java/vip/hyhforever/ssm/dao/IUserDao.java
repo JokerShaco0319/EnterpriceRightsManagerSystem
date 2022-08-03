@@ -42,4 +42,20 @@ public interface IUserDao {
             @Result(property = "roles", column = "id",javaType = java.util.List.class, many = @Many(select = "vip.hyhforever.ssm.dao.IRoleDao.findRoleByUserId"))
     })
     UserInfo findById(String userId);
+
+    /**
+     * 功能描述：根据ID查询当前用户可以添加的所有角色
+     * @param userId 需要查询的用户id
+     * @return 用户可以添加的其他角色的集合
+     **/
+    @Select("select * from role where id not in(select roleId from users_role where userId = #{userId})")
+    List<Role> findOtherRoles(String userId) throws Exception;
+
+    /**
+     * 功能描述：给指定用户添加一个角色
+     * @param userId 需要添加角色的用户
+     * @param roleId 给当前用户添加一个角色
+     **/
+    @Insert("insert into users_role(userId, roleId) values(#{userId},#{roleId})")
+    void addRoleToUser(@Param("userId") String userId, @Param("roleId") String roleId);
 }

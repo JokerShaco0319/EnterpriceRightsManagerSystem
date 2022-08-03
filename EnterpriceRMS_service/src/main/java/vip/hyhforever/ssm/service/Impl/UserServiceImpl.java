@@ -44,8 +44,7 @@ public class UserServiceImpl implements IUserService {
 
         //使用Spring security的规范User对象 封装 自定义的User对象
         assert userInfo != null;
-//        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();//security的需要将密码加密后才能正确获取权限控制，如果数据库没有加密，需要调用加密
-
+        //BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();//security的需要将密码加密后才能正确获取权限控制，如果数据库没有加密，需要调用加密
         return new User(userInfo.getUsername(),//用户名
                 userInfo.getPassword(),
                 userInfo.getStatus() == 0 ? false : true,//用户是否可用
@@ -94,5 +93,22 @@ public class UserServiceImpl implements IUserService {
     @Override
     public UserInfo findById(String userId) {
         return userDao.findById(userId);
+    }
+
+    /**
+     * 功能描述：根据ID查询当前用户可以添加的所有角色
+     * @param userid 需要查询的用户id
+     * @return 用户可以添加的其他角色的集合
+     **/
+    @Override
+    public List<Role> findOtherRoles(String userId) throws Exception {
+        return userDao.findOtherRoles(userId);
+    }
+
+    @Override
+    public void addRoleToUser(String userId, String[] ids) {
+        for (String id: ids) {
+            userDao.addRoleToUser(userId,id);
+        }
     }
 }

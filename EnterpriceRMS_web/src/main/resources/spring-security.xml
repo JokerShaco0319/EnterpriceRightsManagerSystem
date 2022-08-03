@@ -14,6 +14,11 @@
 	<security:http pattern="/img/**" security="none"/>
 	<security:http pattern="/plugins/**" security="none"/>
 
+	<!--开启JSR-250权限控制-->
+	<security:global-method-security jsr250-annotations="enabled"/>
+	<!--开启security权限控制-->
+<!--	<security:global-method-security secured-annotations="enabled"/>-->
+
 	<!--
         配置具体的规则
         auto-config="true"	不用自己编写登录的页面，框架提供默认登录页面
