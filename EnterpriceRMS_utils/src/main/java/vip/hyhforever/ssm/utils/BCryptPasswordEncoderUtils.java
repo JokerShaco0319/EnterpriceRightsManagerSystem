@@ -15,8 +15,8 @@ public class BCryptPasswordEncoderUtils {
         return bCryptPasswordEncoder.encode(password);
     }
 
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
         String str = "123456";
         System.out.println(BCryptPasswordEncoderUtils.encodePassword(str));
-    }
+    }*/
 }

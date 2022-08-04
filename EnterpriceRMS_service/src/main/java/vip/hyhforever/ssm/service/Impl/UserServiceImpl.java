@@ -97,7 +97,7 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * 功能描述：根据ID查询当前用户可以添加的所有角色
-     * @param userid 需要查询的用户id
+     * @param userId 需要查询的用户id
      * @return 用户可以添加的其他角色的集合
      **/
     @Override

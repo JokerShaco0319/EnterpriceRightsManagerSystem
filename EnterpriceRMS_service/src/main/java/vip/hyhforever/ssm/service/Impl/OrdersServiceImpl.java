@@ -23,7 +23,7 @@ public class OrdersServiceImpl implements IOrdersService {
      * @return 返回Dao查询到的所有订单数据；
      **/
     @Override
-    public List<Orders> findAll(int page, int size) throws Exception {
+    public List<Orders> findAll(Integer page, Integer size) throws Exception {
         PageHelper.startPage(page, size);
         return ordersDao.findAll();
     }
