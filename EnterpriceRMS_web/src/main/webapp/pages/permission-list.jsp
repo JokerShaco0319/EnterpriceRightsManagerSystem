@@ -8,9 +8,9 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>数据 - AdminLTE2定制版</title>
-<meta name="description" content="AdminLTE2定制版">
-<meta name="keywords" content="AdminLTE2定制版">
+<title>数据 - 权限展示</title>
+<meta name="description" content="AdminLTE2">
+<meta name="keywords" content="AdminLTE2">
 
 <!-- Tell the browser to be responsive to screen width -->
 <meta
@@ -79,15 +79,15 @@
 			<!-- 内容头部 -->
 			<section class="content-header">
 			<h1>
-				角色管理 <small>全部角色</small>
+				权限管理 <small>全部权限</small>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
 						class="fa fa-dashboard"></i> 首页</a></li>
 				<li><a
-					href="${pageContext.request.contextPath}/role/findAll.do">角色管理</a></li>
+					href="${pageContext.request.contextPath}/role/findAll.do">权限管理</a></li>
 
-				<li class="active">全部角色</li>
+				<li class="active">全部权限</li>
 			</ol>
 			</section>
 			<!-- 内容头部 /-->
@@ -206,13 +206,13 @@
 			<!-- 内容区域 /-->
 
 			<!-- 底部导航 -->
-			<footer class="main-footer">
+		<footer class="main-footer">
 			<div class="pull-right hidden-xs">
-				<b>Version</b> 1.0.8
+				<b>Version</b> 0.0.1
 			</div>
-			<strong>Copyright &copy; 2014-2017 <a
-				href="http://www.itcast.cn">研究院研发部</a>.
-			</strong> All rights reserved. </footer>
+			<strong>JokerShaco 2022 <a
+					href="http://www.hyhforever.vip">个人博客</a>.
+			</strong> 后台权限管理系统 </footer>
 			<!-- 底部导航 /-->
 
 		</div>

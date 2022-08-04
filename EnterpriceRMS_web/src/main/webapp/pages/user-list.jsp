@@ -8,9 +8,9 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>数据 - AdminLTE2定制版</title>
-<meta name="description" content="AdminLTE2定制版">
-<meta name="keywords" content="AdminLTE2定制版">
+<title>数据 - 用户列表</title>
+<meta name="description" content="AdminLTE">
+<meta name="keywords" content="AdminLTE">
 
 <!-- Tell the browser to be responsive to screen width -->
 <meta
@@ -210,13 +210,13 @@
 			<!-- 内容区域 /-->
 
 			<!-- 底部导航 -->
-			<footer class="main-footer">
+		<footer class="main-footer">
 			<div class="pull-right hidden-xs">
-				<b>Version</b> 1.0.8
+				<b>Version</b> 0.0.1
 			</div>
-			<strong>Copyright &copy; 2014-2017 <a
-				href="http://www.itcast.cn">研究院研发部</a>.
-			</strong> All rights reserved. </footer>
+			<strong>JokerShaco 2022 <a
+					href="http://www.hyhforever.vip">个人博客</a>.
+			</strong> 后台权限管理系统 </footer>
 			<!-- 底部导航 /-->
 
 		</div>

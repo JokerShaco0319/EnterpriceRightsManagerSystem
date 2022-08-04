@@ -66,9 +66,6 @@
 	</div>
 	<!-- /.login-box -->
 
-	<!-- jQuery 2.2.3 -->
-	<!-- Bootstrap 3.3.6 -->
-	<!-- iCheck -->
 	<script
 		src="${pageContext.request.contextPath}/plugins/jQuery/jquery-2.2.3.min.js"></script>
 	<script
